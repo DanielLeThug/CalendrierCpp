@@ -1,21 +1,24 @@
 #ifndef COURS_H
 #define COURS_H
 
+#include "Salle.h"
+#include "Filiere.h"
+#include "Professeur.h"
+
 class Cours
 {
 	public:
-		Cours();
-		Cours(Filiere fil, Professeur prof, Salle sal, int hor);
+		Cours(const Filiere& fil, const Professeur& prof, const Salle& sal, int hor);
 		
 		Filiere getFiliere() const;
-		setFiliere(const Filiere& fil);
+		void setFiliere(const Filiere& fil);
 		Professeur getProfesseur() const;
-		setProfesseur(const Professeur& prof);
+		void setProfesseur(const Professeur& prof);
 		Salle getSalle() const;
-		setSalle(const Salle& sal);
+		void setSalle(const Salle& sal);
 		int getHorraire() const;
-		setHorraire(const int& hor);
-		
+		void setHorraire(const int& hor);
+				
 	private:
 		Filiere d_filiere;
 		Professeur d_professeur;
