@@ -1,16 +1,16 @@
 #include "Annee.h"
 
-Annee::Annee(const vector<Cours>& coursAnnee) :
-	d_coursAnnee{coursAnnee}
+Annee::Annee(const vector<Semaine*>& semainesAnnee) :
+	d_semainesAnnee{semainesAnnee}
 {
 }
 
-vector<Cours> Annee::getCoursAnnee() const
+vector<Semaine*> Annee::getSemainesAnnee() const
 {
-	return d_coursAnnee;
+	return d_semainesAnnee;
 }
 		
-void Annee::setCoursAnnee(const vector<Cours>& coursAnnee)
+void Annee::setSemainesAnnee(const vector<Semaine*>& semainesAnnee)
 {
-	d_coursAnnee = coursAnnee;
+	d_semainesAnnee = semainesAnnee;
 }

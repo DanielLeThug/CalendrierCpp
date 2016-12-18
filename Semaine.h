@@ -9,13 +9,13 @@ using std::vector;
 class Semaine
 {
 	public:
-		Semaine(const vector<Cours>& coursSemaine);
+		Semaine(const vector<Journee*>& journeesSemaine);
 		
-		vector<Cours> getCoursSemaine() const;
-		void setCoursSemaine(const vector<Cours>& coursSemaine);
+		vector<Journee*> getJourneesSemaine() const;
+		void setJourneesSemaine(const vector<Journee*>& journeesSemaine);
 		
 	private:
-		vector<Cours> d_coursSemaine;
+		vector<Journee*> d_journeesSemaine;
 };
 
 #endif

@@ -9,13 +9,13 @@ using std::vector;
 class Annee
 {
 	public:
-		Annee(const vector<Cours>& coursAnnee);
+		Annee(const vector<Semaine*>& semainesAnnee);
 		
-		vector<Cours> getCoursAnnee() const;
-		void setCoursAnnee(const vector<Cours>& coursAnnee);
+		vector<Semaine*> getSemainesAnnee() const;
+		void setSemainesAnnee(const vector<Semaine*>& semainesAnnee);
 		
 	private:
-		vector<Cours> d_coursAnnee;
+		vector<Semaine*> d_semainesAnnee;
 };
 
 #endif

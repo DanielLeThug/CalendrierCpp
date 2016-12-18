@@ -1,16 +1,16 @@
 #include "Semaine.h"
 
-Semaine::Semaine(const vector<Cours>& coursSemaine) :
-	d_coursSemaine{coursSemaine}
+Semaine::Semaine(const vector<Journee*>& journeesSemaine) :
+	d_journeesSemaine{journeesSemaine}
 {
 }
 
-vector<Cours> Semaine::getCoursSemaine() const
+vector<Journee*> Semaine::getJourneesSemaine() const
 {
-	return d_coursSemaine;
+	return d_journeesSemaine;
 }
 		
-void Semaine::setCoursSemaine(const vector<Cours>& coursSemaine)
+void Semaine::setJourneesSemaine(const vector<Journee*>& journeesSemaine)
 {
-	d_coursSemaine = coursSemaine;
+	d_journeesSemaine = journeesSemaine;
 }
