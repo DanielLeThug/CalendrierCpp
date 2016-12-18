@@ -14,3 +14,8 @@ void Annee::setSemainesAnnee(const vector<Semaine*>& semainesAnnee)
 {
 	d_semainesAnnee = semainesAnnee;
 }
+
+void Annee::addSemaine(Semaine* semaine, int numero)
+{
+	d_semainesAnnee[numero]=semaine;
+}

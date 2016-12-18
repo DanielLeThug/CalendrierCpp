@@ -14,3 +14,8 @@ void Semaine::setJourneesSemaine(const vector<Journee*>& journeesSemaine)
 {
 	d_journeesSemaine = journeesSemaine;
 }
+
+void Semaine::addJournee(Journee* journee, int numero)
+{
+	d_journeesSemaine[numero]=journee;
+}

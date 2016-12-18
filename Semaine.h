@@ -13,7 +13,7 @@ class Semaine
 		
 		vector<Journee*> getJourneesSemaine() const;
 		void setJourneesSemaine(const vector<Journee*>& journeesSemaine);
-		
+		void addJournee(Journee*, int numeroJournee);
 	private:
 		vector<Journee*> d_journeesSemaine;
 };
