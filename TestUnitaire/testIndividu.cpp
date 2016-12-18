@@ -3,15 +3,15 @@
 
 TEST_CASE ("Le constructeur de Individu marche", "Individu")
 {
-	Individu individu("Jaures", "Jean");
+	Individu individu {"Jaures", "Jean"};
 	
 	REQUIRE(individu.getNom() =="Jaures");
 	REQUIRE(individu.getPrenom() =="Jean");
 }
 
-TEST_CASE("Les setters marchent", "Individu")
+TEST_CASE("Les setters d'individu marchent", "Individu")
 {
-	Individu individu("Jaures", "Jean");
+	Individu individu{"Jaures", "Jean"};
 	
 	REQUIRE(individu.getNom() =="Jaures");
 	REQUIRE(individu.getPrenom() =="Jean");

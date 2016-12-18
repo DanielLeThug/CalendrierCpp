@@ -3,16 +3,16 @@
 
 TEST_CASE( "le constructeur de étudiant marche", "Etudiant")
 {
-	Etudiant etudiant("Belmondo","Paul",21401196); 
+	Etudiant etudiant{"Belmondo","Paul",21401196}; 
 	
 	REQUIRE(etudiant.getNom() =="Belmondo");
 	REQUIRE(etudiant.getPrenom() =="Paul");
 	REQUIRE(etudiant.getNumeroEtudiant()==21401196 );
 }
 
-TEST_CASE( "les setters marchent", "Etudiant")
+TEST_CASE( "les setters d'etudiant marchent", "Etudiant")
 {
-	Etudiant etudiant("Belmondo","Paul",21401196); 
+	Etudiant etudiant{"Belmondo","Paul",21401196}; 
 	
 	REQUIRE(etudiant.getNom() =="Belmondo");
 	REQUIRE(etudiant.getPrenom() =="Paul");

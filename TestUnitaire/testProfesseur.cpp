@@ -3,7 +3,7 @@
 
 TEST_CASE( "le constructeur de professeur marche", "Professeur")
 {
-	Professeur professeur("Bibine","Renée","Quidditch"); 
+	Professeur professeur{"Bibine","Renée","Quidditch"}; 
 	
 	REQUIRE(professeur.getNom() =="Bibine");
 	REQUIRE(professeur.getPrenom() =="Renée");
@@ -12,7 +12,7 @@ TEST_CASE( "le constructeur de professeur marche", "Professeur")
 
 TEST_CASE( "les setters de professeur marchent", "Professeur")
 {
-	Professeur professeur("Bibine","Renée","Quidditch"); 
+	Professeur professeur{"Bibine","Renée","Quidditch"};
 	
 	REQUIRE(professeur.getNom() =="Bibine");
 	REQUIRE(professeur.getPrenom() =="Renée");
