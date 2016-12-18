@@ -9,16 +9,16 @@ using std::vector;
 class Filiere
 {
 	public:
-		Filiere(const string& intitule, const vector<Etudiant>& listeEtu);
+		Filiere(const string& intitule, const vector<Etudiant*>& listeEtu);
 		
 		string getIntitule() const;
 		void setIntitule(const string& intitule);
-		vector<Etudiant> getListeEtudiants() const;
-		void setListeEtudiants(const vector<Etudiant>& listeEtu);
+		vector<Etudiant*> getListeEtudiants() const;
+		void setListeEtudiants(const vector<Etudiant*>& listeEtu);
 		
 	private:
 		string d_intitule;
-		vector<Etudiant> d_listeEtudiants;
+		vector<Etudiant*> d_listeEtudiants;
 };
 
 #endif

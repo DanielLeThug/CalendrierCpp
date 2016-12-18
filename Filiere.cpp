@@ -1,6 +1,6 @@
 #include "Filiere.h"
 
-Filiere::Filiere(const string& intitule, const vector<Etudiant>& listeEtu) :
+Filiere::Filiere(const string& intitule, const vector<Etudiant*>& listeEtu) :
 	d_intitule{intitule}, d_listeEtudiants{listeEtu}
 {
 }
@@ -15,12 +15,12 @@ void Filiere::setIntitule(const string& intitule)
 	d_intitule = intitule;
 }
 		
-vector<Etudiant> Filiere::getListeEtudiants() const
+vector<Etudiant*> Filiere::getListeEtudiants() const
 {
 	return d_listeEtudiants;
 }
 		
-void Filiere::setListeEtudiants(const vector<Etudiant>& listeEtu)
+void Filiere::setListeEtudiants(const vector<Etudiant*>& listeEtu)
 {
 	d_listeEtudiants = listeEtu;
 }
