@@ -6,7 +6,7 @@
 
 const int NOMBREJOURNEESSEMAINE = 5;
 
-const int NOMBRECOURSJOURNEE = 5;
+const int NOMBRECOURSJOURNEE = 4;
 
 class Journee;
 
