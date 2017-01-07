@@ -2,7 +2,11 @@
 #define AFFICHEUR_H
 #include <vector>
 #include <iostream>
-#include "Journee.cpp"
+#include "Semaine.h"
+
+const int NOMBREJOURNEESSEMAINE = 5;
+
+const int NOMBRECOURSJOURNEE = 5;
 
 class Journee;
 
@@ -10,7 +14,7 @@ class Afficheur {
 	public:
 		virtual ~Afficheur();
 		
-		virtual void afficheSemaine(const std::vector<Journee*>& journeesSemaine, std::ostream& ost) = 0;
+		virtual void afficheSemaine(const Semaine& semaine, std::ostream& ost) = 0;
 	
 };
 

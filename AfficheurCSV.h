@@ -1,10 +1,11 @@
-#ifndef AFFICHEURCONSOLE_H
-#define AFFICHEURCONSOLE_H
+#ifndef AFFICHEURCSV_H
+#define AFFICHEURCSV_H
 #include "Afficheur.h"
 
-class AfficheurConsole : public Afficheur{
+
+class AfficheurCSV : public Afficheur{
 	public:
-		~AfficheurConsole();
+		~AfficheurCSV();
 		virtual void afficheSemaine(const Semaine& semaine, std::ostream& ost) override;
 			
 };
