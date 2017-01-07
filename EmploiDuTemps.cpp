@@ -103,26 +103,121 @@ void EmploiDuTemps::afficherCours()
 }
 
 void EmploiDuTemps::menuAjout(int filiereChoisi, int semaineChoisi, int jourChoisi)
-{
+{	
+	//afficherJour(d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi]);
+	cout<<"Sur quel crénau souhaitez vous ajouter un cours ?"<<endl;
+	int choix=0;
+	cout<<"1. 8h-10h"<<endl;
+	cout<<"2. 10h-12h"<<endl;
+	cout<<"3. 14h-16h"<<endl;
+	cout<<"4. 16h-18h"<<endl;
+	do
+	{
+		cout<<"Rentrez votre choix";
+		cin>>choix;
+	}while(choix<=0 || choix >=5);
+	if(d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi]->getCoursJournee()[choix])
+	{
+		cout<<"Il existe déjà un cours à ce crénau, voulez vous le modifier ou le supprimer ?";
+		cout<<"1. Ne rien faire "<<endl;
+		cout<<"2. Modifier"<<endl;
+		cout<<"3. Supprimer"<<endl;
+		int choixAction=0;
+		do
+		{
+		cout<<"Rentrez votre choix";
+		cin>>choix;
+		}while(choix<=0 || choix >=4);
+		if(choixAction==2)
+		{
+			//modiferCours(d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi]->getCoursJournee()[choix]);
+		}
+		else if(choixAction==3)
+		{
+			//supprimerCours(d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi]->getCoursJournee()[choix]);
+		}
+	}
+	else
+	{
+		//ajouterCours(d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi],choix);
+	}
 	
 }
 
-void EmploiDuTemps::menuModifer()
+void EmploiDuTemps::menuModifer(int filiereChoisi, int semaineChoisi, int jourChoisi)
 {
-	
+	//afficherJour(d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi]);
+	cout<<"Quel cours souhaitez vous modifier?"<<endl;
+	int choix=0;
+	cout<<"1. 8h-10h"<<endl;
+	cout<<"2. 10h-12h"<<endl;
+	cout<<"3. 14h-16h"<<endl;
+	cout<<"4. 16h-18h"<<endl;
+	do
+	{
+		cout<<"Rentrez votre choix";
+		cin>>choix;
+	}while(choix<=0 || choix >=5);	
+	if(!d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi]->getCoursJournee()[choix])
+	{
+		cout<<"Ce cours n'existe pas, souhaitez vous en créez un ?";
+		cout<<"1. Ne rien faire "<<endl;
+		cout<<"2. Ajouter un cours"<<endl;
+		int choixAction=0;
+		do
+		{
+		cout<<"Rentrez votre choix";
+		cin>>choix;
+		}while(choix<=0 || choix >=3);
+		if(choixAction==2)
+		{
+			//ajouterCours(d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi]->getCoursJournee()[choix]);
+			
+		}		
+	}
+	else
+	{
+		//modiferCours(d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi]->getCoursJournee()[choix]);
+	}
 }
 
 void EmploiDuTemps::menuDeplacer()
 {
-	
+	//casse couilles, on verra
 }
 
-void EmploiDuTemps::menuSupprimer()
+void EmploiDuTemps::menuSupprimer(int filiereChoisi, int semaineChoisi, int jourChoisi)
+{
+		//afficherJour(d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi]);
+	cout<<"Quels cours souhaitez vous supprimer ?"<<endl;
+	int choix=0;
+	cout<<"1. 8h-10h"<<endl;
+	cout<<"2. 10h-12h"<<endl;
+	cout<<"3. 14h-16h"<<endl;
+	cout<<"4. 16h-18h"<<endl;
+	do
+	{
+		cout<<"Rentrez votre choix";
+		cin>>choix;
+	}while(choix<=0 || choix >=5);
+	if(!d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi]->getCoursJournee()[choix])
+	{
+		cout<<"Il n''existe pas de cours à ce crénau ?";
+
+	}
+	else
+	{
+		//supprimerCours(d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi]->getCoursJournee()[choix]);
+	}
+		
+}
+
+void EmploiDuTemps::afficherSemaine()
 {
 	
 }
 
-void EmploiDuTemps::afficherSemaine()
+void EmploiDuTemps::afficherJour()
 {
 	
 }
@@ -154,11 +249,21 @@ void EmploiDuTemps::menuCours()
 		switch(choix) 
 		{
 			case 1 : menuAjout(filiereChoisi, semaineChoisi, jourChoisi); break;
-			case 2 : menuModifer(); break;
+			case 2 : menuModifer(filiereChoisi, semaineChoisi, jourChoisi); break;
 			case 3 : menuDeplacer(); break;
-			case 4 : menuSupprimer();	break;
+			case 4 : menuSupprimer(filiereChoisi, semaineChoisi, jourChoisi);	break;
 		}
 	}while(choix>=1 && choix<=4);
+}
+
+void EmploiDuTemps::afficherListeSalle() const
+{
+	
+}
+	
+void EmploiDuTemps::afficherListeProfesseur() const
+{
+		
 }
 
 void EmploiDuTemps::menuFiliere()
@@ -187,4 +292,33 @@ int EmploiDuTemps::choixFiliere()
 	int choix;
 	cin>>choix;
 	return choix-1;
+}
+void EmploiDuTemps::ajouterCours(Journee* journeeAModifier, int crenau)
+{	
+	cout<<"Choisir Professeur : " <<endl;
+	afficherListeProfesseur();
+	int choixProfesseur;
+	cin>>choixProfesseur;
+	cout<<"Choisir Salle ; "<<endl;
+	afficherListeSalle();
+	int choixSalle;
+	cin>>choixSalle;
+	int horaire;
+	switch(crenau)
+	{
+		case 1: 
+			 horaire=8;
+			break;
+		case 2: 
+			horaire=10;
+			break;
+		case 3: 
+			horaire=14;
+			break;
+		case 4: 
+			horaire=16;
+			break;
+	};
+	Cours* cours= new Cours{d_listeProfs[choixProfesseur], d_listeSalle[choixSalle], horaire};
+	journeeAModifier->ajouterCours(cours, crenau);
 }

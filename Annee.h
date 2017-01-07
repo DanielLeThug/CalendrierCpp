@@ -2,7 +2,7 @@
 #define ANNEE_H
 
 #include "Semaine.h"
-#include "vector"
+#include <vector>
 
 using std::vector;
 
@@ -16,6 +16,7 @@ class Annee
 		void addSemaine(Semaine* semaine, int numero);
 	private:
 		vector<Semaine*> d_semainesAnnee;
+		
 };
 
 #endif

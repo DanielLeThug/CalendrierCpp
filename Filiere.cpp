@@ -24,3 +24,13 @@ void Filiere::setListeEtudiants(const vector<Etudiant*>& listeEtu)
 {
 	d_listeEtudiants = listeEtu;
 }
+
+Annee* Filiere::getAnnee()
+{
+	return d_annee;
+}
+
+Annee* Filiere::getAnnee() const
+{
+	return d_annee;
+}

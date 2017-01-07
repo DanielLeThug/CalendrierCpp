@@ -13,7 +13,7 @@ class Journee
 		
 		vector<Cours*> getCoursJournee() const;
 		void setCoursJournee(const vector<Cours*>& coursJournee);
-		
+		void ajouterCours(Cours* cours, int crenau);
 	private:
 		vector<Cours*> d_coursJournee;
 };

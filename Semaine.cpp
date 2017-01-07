@@ -1,4 +1,5 @@
 #include "Semaine.h"
+#include "Journee.h"
 
 Semaine::Semaine(const vector<Journee*>& journeesSemaine) :
 	d_journeesSemaine{journeesSemaine}
