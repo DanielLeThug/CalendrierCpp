@@ -1,20 +1,41 @@
 #include "Annee.h"
 
+/**
+	@brief Constructeur
+	
+	@param semainesAnnee tableau contenant les semaines de l'année
+*/
 Annee::Annee(const vector<Semaine*>& semainesAnnee) :
 	d_semainesAnnee{semainesAnnee}
 {
 }
 
+/**
+	@brief Getter renvoyant le tableau des semaines
+	
+	
+*/
 vector<Semaine*> Annee::getSemainesAnnee() const
 {
 	return d_semainesAnnee;
 }
-		
+
+/**
+	@brief Setters permettant de remplacer le tableau
+	
+	@param semainesAnnee tableau contenant les semaines de l'année à mettre à la place du tableau actuel
+*/
 void Annee::setSemainesAnnee(const vector<Semaine*>& semainesAnnee)
 {
 	d_semainesAnnee = semainesAnnee;
 }
 
+/**
+	@brief permet d'ajouter une semaine
+	
+	@param semaine pointeur sur la semaine à ajouter
+	@param numero numero ( de 1 à 52 ) de la semaine à ajouter
+*/
 void Annee::addSemaine(Semaine* semaine, int numero)
 {
 	d_semainesAnnee[numero]=semaine;

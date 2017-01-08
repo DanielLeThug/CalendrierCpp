@@ -4,17 +4,23 @@
 #include "Salle.h"
 #include "Professeur.h"
 
+
+/**
+	@class Cours
+	
+	@brief classe représentant un cours
+*/
 class Cours
 {
 	public:
-		Cours(Professeur* prof,Salle* sal, int hor, int duree=2);
+		Cours(Professeur* prof,Salle* sal, int horaire, int duree=2);
 		
 		Professeur getProfesseur() const;
 		void setProfesseur(Professeur* prof);
 		Salle getSalle() const;
 		void setSalle(Salle* sal);
 		int getHorraire() const;
-		void setHorraire(const int& hor);
+		void setHorraire(const int& horaire);
 		int getDuree() const;
 		void setDuree(const int& duree);		
 	private:

@@ -3,6 +3,10 @@
 
 #include "Individu.h"
 
+/**
+	@class Etudiant
+	@brief class héritant de individu et représentant un étudiant
+*/
 class Etudiant : public Individu
 {
 	public:

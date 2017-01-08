@@ -5,7 +5,10 @@
 #include <vector>
 
 using std::vector;
-
+/**
+	@class Annee
+	@brief class représentant une année
+*/
 class Annee
 {
 	public:

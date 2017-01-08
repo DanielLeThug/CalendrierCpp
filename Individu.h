@@ -5,6 +5,10 @@
 
 using std::string;
 
+/**
+	@class Individu
+	@brief classe virtuelle dont hérite Etudiant et Professeur
+*/
 class Individu
 {
 	public:

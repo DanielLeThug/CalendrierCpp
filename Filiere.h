@@ -7,6 +7,10 @@
 
 using std::vector;
 
+/**
+	@class Filiere
+	@brief classe représentant une filière 
+*/
 class Filiere
 {
 	public:
