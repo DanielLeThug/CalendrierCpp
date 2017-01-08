@@ -1,6 +1,6 @@
 #include "catch.hpp"
-#include "Filiere.h"
-#include "Etudiant.h" 
+#include "../Filiere.h"
+#include "../Etudiant.h" 
 
 TEST_CASE("Le constructeur de filiere marche", "filiere")
 {	

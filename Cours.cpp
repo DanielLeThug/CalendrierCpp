@@ -55,3 +55,10 @@ void Cours::setDuree(const int& duree)
 	d_duree=duree;
 }
 
+bool operator==(const Cours& cours, const Cours& autreCours)
+{
+	if (cours.getDuree() == autreCours.getDuree() && cours.getHorraire() == autreCours.getHorraire()
+		&& cours.getProfesseur() == autreCours.getProfesseur() && cours.getSalle() == autreCours.getSalle())
+		return true;
+	return false;
+}

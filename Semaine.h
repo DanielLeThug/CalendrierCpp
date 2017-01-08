@@ -19,4 +19,6 @@ class Semaine
 		vector<Journee* > d_journeesSemaine;
 };
 
+bool operator==(const Semaine& semaine, const Semaine& autreSemaine);
+
 #endif

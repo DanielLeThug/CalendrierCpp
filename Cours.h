@@ -28,4 +28,6 @@ class Cours
 		int d_duree;
 };
 
+bool operator==(const Cours& cours, const Cours& autreCours);
+
 #endif

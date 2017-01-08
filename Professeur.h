@@ -15,4 +15,6 @@ class Professeur : public Individu
 		string d_matiereEnseignee;
 };
 
+bool operator==(Professeur professeur, Professeur secondProfesseur);
+
 #endif

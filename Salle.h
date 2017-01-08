@@ -20,4 +20,6 @@ class Salle
 		string d_batiment;
 };
 
+bool operator==(Salle salle, Salle secondeSalle);
+
 #endif

@@ -24,3 +24,8 @@ void Salle::setBatiment(const string& bat)
 {
 	d_batiment = bat;
 }
+
+bool operator==(Salle salle, Salle secondeSalle)
+{
+	return (salle.getNumeroSalle() == secondeSalle.getNumeroSalle() && salle.getBatiment() ==  secondeSalle.getBatiment() ? true : false);
+}

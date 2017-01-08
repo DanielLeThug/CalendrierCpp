@@ -1,5 +1,5 @@
 #include "catch.hpp"
-#include "Etudiant.h"
+#include "../Etudiant.h"
 
 TEST_CASE( "le constructeur de étudiant marche", "Etudiant")
 {

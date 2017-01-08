@@ -18,4 +18,6 @@ class Journee
 		vector<Cours*> d_coursJournee;
 };
 
+bool operator==(Journee journee, Journee autreJournee);
+
 #endif

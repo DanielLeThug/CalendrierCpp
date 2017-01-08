@@ -1,9 +1,9 @@
 #include "catch.hpp"
-#include "Professeur.h"
+#include "../Professeur.h"
 
 TEST_CASE( "le constructeur de professeur marche", "Professeur")
 {
-	Professeur professeur{"Bibine","Renée","Quidditch"}; 
+	Professeur professeur {"Bibine","Renée","Quidditch"}; 
 	
 	REQUIRE(professeur.getNom() =="Bibine");
 	REQUIRE(professeur.getPrenom() =="Renée");

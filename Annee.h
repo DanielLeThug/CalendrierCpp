@@ -19,4 +19,6 @@ class Annee
 		
 };
 
+bool operator==(const Annee& annee, const Annee& autreAnnee);
+
 #endif
