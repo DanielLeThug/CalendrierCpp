@@ -1,5 +1,4 @@
 #include "AfficheurCSV.h"
-#include <fstream>
 #include <string>
 
 using std::endl;
@@ -9,7 +8,7 @@ const string SEPARATEUR = "##########,##########,##########,##########,#########
 const string COURSVIDE = "##########";
 const int NOMBRECOURSJOURNEE = 4;
 
-void AfficheurCSV::afficheSemaine(const Semaine& semaine)
+void AfficheurCSV::afficheSemaine(const Semaine& semaine) const
 {
 	ofstream fichier("EmploiDuTemps.csv",std::ios::out | std::ios::trunc);
 	
@@ -56,7 +55,7 @@ void AfficheurCSV::afficheSemaine(const Semaine& semaine)
 				if(semaine.getJourneesSemaine()[j]->getCoursJournee()[i])
 				{
 					fichier<<"Salle "<<semaine.getJourneesSemaine()[j]->getCoursJournee()[i]->getSalle().getNumeroSalle()<<" ";
-				fichier<<semaine.getJourneesSemaine()[j]->getCoursJournee()[i]->getSalle().getBatiment();
+					fichier<<semaine.getJourneesSemaine()[j]->getCoursJournee()[i]->getSalle().getBatiment();
 				}
 				else
 				{
@@ -68,6 +67,50 @@ void AfficheurCSV::afficheSemaine(const Semaine& semaine)
 			fichier<<endl;
 		}
 		std::cout<<"Fichier cree avec succes"<<endl;
+		fichier.close();
+	}
+	else
+	{
+		std::cout<<"Impossible d'enregistrer le fichier"<<endl;
+	}
+}
+
+void AfficheurCSV::afficheJour(const Journee* journee) const
+{
+	ofstream fichier("EmploiDuTemps.csv",std::ios::out | std::ios::trunc);
+	
+	if(fichier)
+	{
+		fichier<<"Emploi du temps du jour :"<<endl;
+		for(int i=0; i < journee->getCoursJournee().size();i++)
+		{
+			fichier<<SEPARATEUR<<endl;
+			afficheCours(journee->getCoursJournee()[i], fichier);
+		}
+		fichier.close();
+	}
+	else
+	{
+		std::cout<<"Impossible d'enregistrer le fichier"<<endl;
+	}
+}
+
+void AfficheurCSV::afficheCours(const Cours* cours, ofstream& fichier) const
+{
+	if(fichier)
+	{
+		if(cours)
+		{		
+			fichier<<cours->getHorraire()<<"h : ";
+			fichier<<cours->getProfesseur().getMatiereEnseignee();
+			fichier<<cours->getProfesseur().getNom();
+			fichier<<cours->getSalle().getNumeroSalle()<<" ";
+			fichier<<cours->getSalle().getBatiment();
+		}
+		else
+		{
+			fichier<<COURSVIDE;
+		}	
 	}
 	else
 	{

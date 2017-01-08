@@ -3,7 +3,7 @@
 using std::endl;
 using std::cout;
 
-void AfficheurConsole::afficheSemaine(const Semaine& semaine)
+void AfficheurConsole::afficheSemaine(const Semaine& semaine) const
 {
 	cout<<"### Emploi du temps de la semaine ###"<<endl;
 	
@@ -15,7 +15,7 @@ void AfficheurConsole::afficheSemaine(const Semaine& semaine)
 	}
 }
 
-void AfficheurConsole::afficheJour(const Journee* jour)
+void AfficheurConsole::afficheJour(const Journee* jour) const
 {
 	for(int j=0;jour->getCoursJournee().size();j++)
 		{
@@ -24,7 +24,7 @@ void AfficheurConsole::afficheJour(const Journee* jour)
 		}
 }
 
-void AfficheurConsole::afficheCours(const Cours* cours)
+void AfficheurConsole::afficheCours(const Cours* cours) const
 {
 	if(cours)
 	{

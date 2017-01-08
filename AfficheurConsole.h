@@ -5,9 +5,9 @@
 class AfficheurConsole : public Afficheur{
 	public:
 		~AfficheurConsole();
-		virtual void afficheSemaine(const Semaine& semaine) override;
-		void afficheJour(const Journee* jour);
-		void afficheCours(const Cours* cours);
+		virtual void afficheSemaine(const Semaine& semaine) const override;
+		void afficheJour(const Journee* jour) const;
+		void afficheCours(const Cours* cours) const;
 			
 };
 
