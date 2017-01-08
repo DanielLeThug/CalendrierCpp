@@ -14,6 +14,7 @@ using std::string;
 
 class EmploiDuTemps
 {
+	public:
 	EmploiDuTemps();
 	//void importerFichier(const string& fichier);
 	//void exporterFichier(const string& fichier);
@@ -39,13 +40,23 @@ class EmploiDuTemps
 	void menuCours();
 	void menuFiliere();
 	void menuProfesseur();
-	void menuAjout(int filiereChoisi, int semaineChoisi, int jourChoisi);
-	void menuModifer(int filiereChoisi, int semaineChoisi, int jourChoisi);
-	void menuDeplacer();
-	void menuSupprimer(int filiereChoisi, int semaineChoisi, int jourChoisi);
+	
+	void menuAjoutCours(int filiereChoisi, int semaineChoisi, int jourChoisi);
+	void menuModiferCours(int filiereChoisi, int semaineChoisi, int jourChoisi);
+	void menuDeplacerCours();
+	void menuSupprimerCours(int filiereChoisi, int semaineChoisi, int jourChoisi);
+
+	Etudiant* menuAjoutEtudiant();
+	void menuAjoutFiliere();
+	void menuModiferFiliere(const int& filiereChoisie);
+	void menuSupprimerFiliere(const int& filiereChoisie);
+
+	void menuAjoutProfesseur();
+	void menuModiferProfesseur(const int& choixProfesseur);
+	void menuSupprimerProfesseur(const int& choixProfesseur);
 	
 	int choixFiliere();
-	
+	int choixProfesseur();
 	
 	vector<Salle*> getListeSalle() const;
 	vector<Professeur*> getListeProfesseur() const;
@@ -60,6 +71,5 @@ class EmploiDuTemps
 		vector<Professeur*> d_listeProfs;
 		vector<Filiere*> d_listeFiliere;
 		AfficheurConsole d_afficheur;
-		
-		
+
 };

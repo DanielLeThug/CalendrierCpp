@@ -111,7 +111,7 @@ void EmploiDuTemps::afficherCours()
 		cout << "Cette semaine n'a pas encore été créé.";
 }
 
-void EmploiDuTemps::menuAjout(int filiereChoisi, int semaineChoisi, int jourChoisi)
+void EmploiDuTemps::menuAjoutCours(int filiereChoisi, int semaineChoisi, int jourChoisi)
 {	
 	afficherJour(d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi]);
 	cout<<"Sur quel crénau souhaitez vous ajouter un cours ?"<<endl;
@@ -153,7 +153,7 @@ void EmploiDuTemps::menuAjout(int filiereChoisi, int semaineChoisi, int jourChoi
 	
 }
 
-void EmploiDuTemps::menuModifer(int filiereChoisi, int semaineChoisi, int jourChoisi)
+void EmploiDuTemps::menuModiferCours(int filiereChoisi, int semaineChoisi, int jourChoisi)
 {
 	afficherJour(d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi]);
 	cout<<"Quel cours souhaitez vous modifier?"<<endl;
@@ -190,12 +190,12 @@ void EmploiDuTemps::menuModifer(int filiereChoisi, int semaineChoisi, int jourCh
 	}
 }
 
-void EmploiDuTemps::menuDeplacer()
+void EmploiDuTemps::menuDeplacerCours()
 {
 	//casse couilles, on verra
 }
 
-void EmploiDuTemps::menuSupprimer(int filiereChoisi, int semaineChoisi, int jourChoisi)
+void EmploiDuTemps::menuSupprimerCours(int filiereChoisi, int semaineChoisi, int jourChoisi)
 {
 	afficherJour(d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi]);
 	cout<<"Quels cours souhaitez vous supprimer ?"<<endl;
@@ -269,14 +269,172 @@ void EmploiDuTemps::menuCours()
 	}while(choix>=1 && choix<=4);
 }
 
+Etudiant*	EmploiDuTemps::menuAjoutEtudiant()
+{
+	string nom, prenom;
+	int numeroEtu;
+
+	cout<<"Veuillez indiquer le nom de l'étudiant"<<endl;
+	cin>>nom;
+	cout<<"Veuillez indiquer le prénom de l'étudiant"<<endl;
+	cin>>prenom;
+	cout<<"Veuillez indiquer le numéro de l'étudiant"<<endl;
+	cin>>numeroEtu;
+	return new Etudiant{nom, prenom, numeroEtu};
+}
+
+void EmploiDuTemps::menuAjoutFiliere()
+{
+	string intitule;
+	int idFiliere, choix;
+	vector<Etudiant*> listeEtudiants;
+	
+	cout<<"Intitulé de la filière ?";
+	cin>>intitule;
+	for (idFiliere=0; idFiliere<=d_listeFiliere.size() && d_listeFiliere[idFiliere]->getIntitule() != intitule;idFiliere++);
+	if (d_listeFiliere.size() >= idFiliere)
+	{
+		do
+		{
+			cout<<"Ajoutez un étudiant ? \n1. Oui\n2. Non";
+			cin>>choix;
+			switch(choix) 
+			{
+				case 1 : listeEtudiants.push_back(menuAjoutEtudiant()); break;
+			}
+		}while(choix == 1);	
+		d_listeFiliere.push_back(new Filiere(intitule, listeEtudiants));
+	}
+	else
+	{
+		cout<"cette filière existe déjà";
+	}
+}
+
+void EmploiDuTemps::menuModiferFiliere(const int& filiereChoisie)
+{
+	string intitule;
+	int idFiliere, choix;
+	vector<Etudiant*> listeEtudiants;
+
+	if (d_listeFiliere.size() >= idFiliere)
+	{
+		cout<<"mauvaise indication";
+	}
+	else
+	{
+		
+		cout<<"Modifier\n1. Intitulé\n2. Liste des étudiants\n3. Quitter";
+		cin>>choix;
+		switch(choix) 
+		{
+			case 1 : {cout<<"nouvel intitulé:"; cin>>intitule; d_listeFiliere[idFiliere]->setIntitule(intitule); break;}
+			case 2 : break;
+		}while(choix == 1);	
+	}
+}
+
+void EmploiDuTemps::menuSupprimerFiliere(const int& filiereChoisie)
+{
+	delete getListeFiliere()[filiereChoisie];
+}
+		
 void EmploiDuTemps::menuFiliere()
 {
-	
+	cout<<"Quelle filière voulez-vous modifier ?"<<endl;
+	int filiereChoisie = choixFiliere();
+	int choix;
+	do
+	{
+		if(filiereChoisie <= getListeFiliere().size())
+			cout<<getListeFiliere()[filiereChoisie]->getIntitule()<<" nombre d'étudiants:"<<getListeFiliere()[filiereChoisie]->getListeEtudiants().size()<<endl;
+		else
+			cout << "Cette filière n'a pas encore été créé.";
+
+		cout<<"1. Ajouter une filière"<<endl;
+		cout<<"2. Modifier une filière"<<endl;
+		cout<<"3. Supprimer une filière"<<endl;
+		cout<<"4. Quitter"<<endl;	
+		cin>>choix;
+		switch(choix) 
+		{
+			case 1 : menuAjoutFiliere(); break;
+			case 2 : menuModiferFiliere(filiereChoisie); break;
+			case 3 : menuSupprimerFiliere(filiereChoisie);	break;
+		}
+	}while(choix>=1 && choix<=3);
+}
+
+void EmploiDuTemps::menuAjoutProfesseur()
+{
+	string nom, prenom, matiereEnseignee;
+
+	cout<<"Veuillez indiquer le nom du professeur"<<endl;
+	cin>>nom;
+	cout<<"Veuillez indiquer le prénom du professeur"<<endl;
+	cin>>prenom;
+	cout<<"Veuillez indiquer la matière enseignée"<<endl;
+	cin>>matiereEnseignee;
+	d_listeProfs.push_back(new Professeur{nom, prenom, matiereEnseignee});
+	cout<<"le professeur a été ajouté";
+}
+
+void EmploiDuTemps::menuModiferProfesseur(const int& choixProfesseur)
+{
+	string motEnregistre;
+	int choix;
+
+	if (d_listeProfs.size() >= choixProfesseur)
+	{
+		cout<<"mauvaise indication";
+	}
+	else
+	{
+		cout<<"Modifier\n1. Nom\n2. Prénom\n3. Matière enseignée\n4. Quitter";
+		cin>>choix;
+		switch(choix) 
+		{
+			case 1 : {cout<<"nouveau nom:"; cin>>motEnregistre; d_listeProfs[choixProfesseur]->setNom(motEnregistre); break;}
+			case 2 : {cout<<"nouveau prénom:"; cin>>motEnregistre; d_listeProfs[choixProfesseur]->setPrenom(motEnregistre); break;}
+			case 3 : {cout<<"nouvelle matière:"; cin>>motEnregistre; d_listeProfs[choixProfesseur]->setMatiereEnseignee(motEnregistre); break;}
+		}while(choix == 1);	
+	}
+}
+
+void EmploiDuTemps::menuSupprimerProfesseur(const int& choixProfesseur)
+{
+	delete d_listeProfs[choixProfesseur];
+}
+
+			
+int EmploiDuTemps::choixProfesseur()
+{
+	int choixProfesseur;
+	cout<<"Choisir Professeur : " <<endl;
+	afficherListeProfesseur();
+	cin>>choixProfesseur;
+	return choixProfesseur;
 }
 
 void EmploiDuTemps::menuProfesseur()
 {
-	
+	int choix, profChoisi;
+	do
+	{	
+		cout<<"Quel professeur souhaitez vous modifier ? : "<<endl;
+		cin >> profChoisi;
+		cout<<"1. Ajouter un professeur"<<endl;
+		cout<<"2. Modifier un professeur"<<endl;
+		cout<<"3. Supprimer un professeur"<<endl;
+		cout<<"4. Quitter"<<endl;	
+		cin>>choix;
+		switch(choix) 
+		{
+			case 1 : menuAjoutProfesseur(); break;
+			case 2 : menuModiferProfesseur(choixProfesseur()); break;
+			case 3 : menuSupprimerProfesseur(choixProfesseur()); break;
+		}
+	}while(choix>=1 && choix<=3);
 }
 
 void EmploiDuTemps::afficherListeSalle() const
