@@ -214,12 +214,12 @@ void EmploiDuTemps::menuSupprimer(int filiereChoisi, int semaineChoisi, int jour
 
 void EmploiDuTemps::afficherSemaine(const Semaine* semaine, AfficheurConsole& aff)
 {
-	aff.afficheSemaine(*semaine,cout);
+	aff.afficheSemaine(*semaine);
 }
 
 void EmploiDuTemps::afficherSemaineCSV(const Semaine* semaine, AfficheurCSV& aff)
 {
-	aff.afficheSemaine(*semaine,cout);
+	aff.afficheSemaine(*semaine);
 }
 
 void EmploiDuTemps::menuCours()

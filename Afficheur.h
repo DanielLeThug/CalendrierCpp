@@ -10,7 +10,7 @@ class Afficheur {
 	public:
 		virtual ~Afficheur();
 		
-		virtual void afficheSemaine(const Semaine& semaine, std::ostream& ost) = 0;
+		virtual void afficheSemaine(const Semaine& semaine) = 0;
 	
 };
 

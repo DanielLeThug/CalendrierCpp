@@ -1,38 +1,47 @@
 #include "AfficheurConsole.h"
 
 using std::endl;
-using std::ostream;
+using std::cout;
 
-void AfficheurConsole::afficheSemaine(const Semaine& semaine, ostream& ost)
+void AfficheurConsole::afficheSemaine(const Semaine& semaine)
 {
-	ost<<"### Emploi du temps de la semaine ###"<<endl;
+	cout<<"### Emploi du temps de la semaine ###"<<endl;
 	
 	for(int i=0;i<semaine.getJourneesSemaine().size();i++)
 	{
-		ost<<"Jour n°"<<i<<endl;
+		cout<<"Jour n°"<<i+1<<endl;
+		afficheJour(semaine.getJourneesSemaine()[i]);
 		
-		for(int j=0;j<semaine.getJourneesSemaine()[i]->getCoursJournee().size();j++)
-		{
-			if(semaine.getJourneesSemaine()[i]->getCoursJournee()[j])
-			{
-				ost<<semaine.getJourneesSemaine()[i]->getCoursJournee()[j]->getHorraire()<<"h : ";
-				ost<<semaine.getJourneesSemaine()[i]->getCoursJournee()[j]->getProfesseur().getMatiereEnseignee();
-				ost<<" - "<<semaine.getJourneesSemaine()[i]->getCoursJournee()[j]->getProfesseur().getNom()<<endl;
-				ost<<"---En salle "<<semaine.getJourneesSemaine()[i]->getCoursJournee()[j]->getSalle().getNumeroSalle();
-				ost<<" Batiment "<<semaine.getJourneesSemaine()[i]->getCoursJournee()[j]->getSalle().getBatiment()<<endl;
-				ost<<"---Duree : "<<semaine.getJourneesSemaine()[i]->getCoursJournee()[j]->getDuree()<<"h"<<endl<<endl;
-			}
-			else
-			{
-				ost<<"---"<<endl;
-				ost<<"---Creneau vide"<<endl;
-				ost<<"---"<<endl<<endl;
-			}
-			
-		}
 	}
 }
 
+void AfficheurConsole::afficheJour(const Journee* jour)
+{
+	for(int j=0;jour->getCoursJournee().size();j++)
+		{
+			afficheCours(jour->getCoursJournee()[j]);
+			
+		}
+}
+
+void AfficheurConsole::afficheCours(const Cours* cours)
+{
+	if(cours)
+	{
+		cout<<cours->getHorraire()<<"h : ";
+		cout<<cours->getProfesseur().getMatiereEnseignee();
+		cout<<" - "<<cours->getProfesseur().getNom()<<endl;
+		cout<<"---En salle "<<cours->getSalle().getNumeroSalle();
+		cout<<" Batiment "<<cours->getSalle().getBatiment()<<endl;
+		cout<<"---Duree : "<<cours->getDuree()<<"h"<<endl<<endl;
+	}
+	else
+	{
+		cout<<"---"<<endl;
+		cout<<"---Creneau vide"<<endl;
+		cout<<"---"<<endl<<endl;
+	}	
+}
 AfficheurConsole::~AfficheurConsole()
 {
 }

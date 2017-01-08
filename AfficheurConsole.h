@@ -5,7 +5,9 @@
 class AfficheurConsole : public Afficheur{
 	public:
 		~AfficheurConsole();
-		virtual void afficheSemaine(const Semaine& semaine, std::ostream& ost) override;
+		virtual void afficheSemaine(const Semaine& semaine) override;
+		void afficheJour(const Journee* jour);
+		void afficheCours(const Cours* cours);
 			
 };
 

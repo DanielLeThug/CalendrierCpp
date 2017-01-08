@@ -6,7 +6,7 @@
 class AfficheurCSV : public Afficheur{
 	public:
 		~AfficheurCSV();
-		virtual void afficheSemaine(const Semaine& semaine, std::ostream& ost) override;
+		virtual void afficheSemaine(const Semaine& semaine) override;
 			
 };
 

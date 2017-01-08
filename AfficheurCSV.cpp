@@ -9,7 +9,7 @@ const string SEPARATEUR = "##########,##########,##########,##########,#########
 const string COURSVIDE = "##########";
 const int NOMBRECOURSJOURNEE = 4;
 
-void AfficheurCSV::afficheSemaine(const Semaine& semaine, std::ostream& ost)
+void AfficheurCSV::afficheSemaine(const Semaine& semaine)
 {
 	ofstream fichier("EmploiDuTemps.csv",std::ios::out | std::ios::trunc);
 	
@@ -67,11 +67,11 @@ void AfficheurCSV::afficheSemaine(const Semaine& semaine, std::ostream& ost)
 			}
 			fichier<<endl;
 		}
-		ost<<"Fichier cree avec succes"<<endl;
+		std::cout<<"Fichier cree avec succes"<<endl;
 	}
 	else
 	{
-		ost<<"Impossible d'enregistrer le fichier"<<endl;
+		std::cout<<"Impossible d'enregistrer le fichier"<<endl;
 	}
 }
 
