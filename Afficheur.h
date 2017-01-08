@@ -6,6 +6,10 @@
 
 class Journee;
 
+/**
+	@class Afficheur
+	@brief Classe abstraite des différents afficheurs
+*/
 class Afficheur {
 	public:
 		virtual ~Afficheur();

@@ -8,7 +8,12 @@ const string SEPARATEUR = "##########,##########,##########,##########,#########
 const string COURSVIDE = "##########";
 const int NOMBRECOURSJOURNEE = 4;
 
-void AfficheurCSV::afficheSemaine(const Semaine& semaine) const
+/**
+	@brief Méthode qui enregistre une semaine de cours dans un fichier csv
+	
+	@param semaine Référence sur une Semaine
+*/
+void AfficheurCSV::afficheSemaine(const Semaine& semaine) const // Difficile d'utiliser les méthodes ci-dessous pour éviter la duplication, car l'affichage se fait en ligne pour le format csv
 {
 	ofstream fichier("EmploiDuTemps.csv",std::ios::out | std::ios::trunc);
 	
@@ -75,6 +80,11 @@ void AfficheurCSV::afficheSemaine(const Semaine& semaine) const
 	}
 }
 
+/**
+	@brief Méthode qui enregistre une journée de cours dans un fichier csv
+	
+	@param journee Pointeur sur une Journee
+*/
 void AfficheurCSV::afficheJour(const Journee* journee) const
 {
 	ofstream fichier("EmploiDuTemps.csv",std::ios::out | std::ios::trunc);
@@ -95,6 +105,12 @@ void AfficheurCSV::afficheJour(const Journee* journee) const
 	}
 }
 
+/**
+	@brief Méthode utilisée par la méthode AfficheurCSV::AfficheJour pour enregistrer un cours dans un fichier csv passé en paramètre
+	
+	@param cours Pointeur sur un Cours
+	@param fichier Fichier passé en paramètre
+*/
 void AfficheurCSV::afficheCours(const Cours* cours, ofstream& fichier) const
 {
 	if(fichier)
@@ -118,6 +134,9 @@ void AfficheurCSV::afficheCours(const Cours* cours, ofstream& fichier) const
 	}
 }
 
+/**
+	@brief Destructeur
+*/
 AfficheurCSV::~AfficheurCSV()
 {
 }

@@ -3,6 +3,10 @@
 #include "Afficheur.h"
 #include <fstream>
 
+/**
+	@class AfficheurCSV
+	@brief Classe héritée de la classe Afficheur pour l'enregistrement dans un fichier csv
+*/
 class AfficheurCSV : public Afficheur{
 	public:
 		~AfficheurCSV();

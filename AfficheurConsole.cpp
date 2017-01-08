@@ -3,6 +3,11 @@
 using std::endl;
 using std::cout;
 
+/**
+	@brief Méthode qui affiche une semaine de cours dans la console
+	
+	@param semaine Référence sur une Semaine
+*/
 void AfficheurConsole::afficheSemaine(const Semaine& semaine) const
 {
 	cout<<"### Emploi du temps de la semaine ###"<<endl;
@@ -15,6 +20,11 @@ void AfficheurConsole::afficheSemaine(const Semaine& semaine) const
 	}
 }
 
+/**
+	@brief Méthode qui affiche une journée de cours dans la console
+	
+	@param jour Pointeur sur une Journee
+*/
 void AfficheurConsole::afficheJour(const Journee* jour) const
 {
 	for(int j=0;jour->getCoursJournee().size();j++)
@@ -24,6 +34,11 @@ void AfficheurConsole::afficheJour(const Journee* jour) const
 		}
 }
 
+/**
+	@brief Méthode qui affiche un cours dans la console
+	
+	@param cours Pointeur sur un Cours
+*/
 void AfficheurConsole::afficheCours(const Cours* cours) const
 {
 	if(cours)
@@ -42,6 +57,10 @@ void AfficheurConsole::afficheCours(const Cours* cours) const
 		cout<<"---"<<endl<<endl;
 	}	
 }
+
+/**
+	@brief Destructeur
+*/
 AfficheurConsole::~AfficheurConsole()
 {
 }

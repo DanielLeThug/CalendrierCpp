@@ -3,6 +3,11 @@
 
 #include "Individu.h"
 
+/**
+	@class Professeur
+	@brief Classe héritée d'Individu contenant en plus une matière enseignée
+*/
+
 class Professeur : public Individu
 {
 	public:

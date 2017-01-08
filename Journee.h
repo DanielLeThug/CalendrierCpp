@@ -6,6 +6,10 @@
 
 using std::vector;
 
+/**
+	@class Journee
+	@brief Classe Journee contenant un vecteur de pointeurs sur des Cours
+*/
 class Journee
 {
 	public:

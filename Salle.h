@@ -5,6 +5,10 @@
 
 using std::string;
 
+/**
+	@class Salle
+	@brief Classe Salle contenant des string de numéro de salle et de batiment
+*/
 class Salle
 {
 	public:

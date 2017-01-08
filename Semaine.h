@@ -7,6 +7,10 @@
 
 using std::vector;
 
+/**
+	@class Semaine
+	@brief Classe Semaine contenant un vecteur de pointeurs sur les Journee de la Semaine
+*/
 class Semaine
 {
 	public:

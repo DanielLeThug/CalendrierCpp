@@ -2,6 +2,10 @@
 #define AFFICHEURCONSOLE_H
 #include "Afficheur.h"
 
+/**
+	@class AfficheurConsole
+	@brief Classe héritée de la classe Afficheur pour l'affichage dans la console
+*/
 class AfficheurConsole : public Afficheur{
 	public:
 		~AfficheurConsole();
