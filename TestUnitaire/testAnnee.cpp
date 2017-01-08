@@ -3,54 +3,87 @@
 
 TEST_CASE( "le constructeur de annee marche", "Annee")
 {
-	
-	Annee annee();
 	vector<Semaine*> semainesAnnee;
 	vector<Journee*> journeesSemaine;
 	vector<Cours*> coursJournee;
 	
 	for (int i=0; i<10; i++)
 	{
-		for (int j=0; j<10; j++)
-		{
-			for (int k=0; k<10; k++)
-			{
-				coursJournee.push_back(new Cours(new Professeur("Bibine","Renée","Quidditch"), new Salle("F402", "6"), 21401196, 21401196));
-			}
-			//journeesSemaine.push_back(coursJournee);
-			//coursJournee.erase();
-		}
-		semainesAnnee.push_back(journeeSemaine);
-		journeesSemaine.erase();
+		coursJournee.push_back(new Cours(new Professeur("Bibine","Renée","Quidditch"), new Salle("F402", "6"), 21401196, 21401196));
 	}
-
-	annee.Annee(semainesAnnee);	
+	for (int i=0; i<10; i++)
+	{
+		journeesSemaine.push_back(new Journee(coursJournee));
+	}
+	for (int i=0; i<10; i++)
+	{
+		semainesAnnee.push_back(new Semaine(journeesSemaine));
+	}
+	Annee annee(semainesAnnee);	
 	REQUIRE(annee.getSemainesAnnee()==semainesAnnee);
-
 }
-/*
+
+
 TEST_CASE( "les setters d'annee marchent", "Annee")
 {
-	Etudiant etudiant{"Belmondo","Paul",21401196}; 
+	vector<Semaine*> semainesAnnee;
+	vector<Journee*> journeesSemaine;
+	vector<Cours*> coursJournee;
 	
-	REQUIRE(etudiant.getNom() =="Belmondo");
-	REQUIRE(etudiant.getPrenom() =="Paul");
-	REQUIRE(etudiant.getNumeroEtudiant()==21401196 );
-	
-	SECTION("Changer le nom marche")
+	for (int i=0; i<10; i++)
 	{
-		etudiant.setNom("Ventura");
-		REQUIRE(etudiant.getNom()=="Ventura");
+		coursJournee.push_back(new Cours(new Professeur("Bibine","Renée","Quidditch"), new Salle("F402", "6"), 21401196, 21401196));
+	}
+	for (int i=0; i<10; i++)
+	{
+		journeesSemaine.push_back(new Journee(coursJournee));
+	}
+	for (int i=0; i<10; i++)
+	{
+		semainesAnnee.push_back(new Semaine(journeesSemaine));
+	}
+	Annee annee(semainesAnnee);
+	REQUIRE(annee.getSemainesAnnee()==semainesAnnee);
+	
+	SECTION("Changer la semaine marche")
+	{
+		vector<Semaine*> autreSemainesAnnee;
+		vector<Journee*> autreJourneesSemaine;
+		vector<Cours*> autreCoursJournee;
+		
+		for (int i=0; i<10; i++)
+		{
+			autreCoursJournee.push_back(new Cours(new Professeur("McGonagall","Minerva","Métamorphose"), new Salle("B600", "B"), 21401196, 21401196));
+		}
+		for (int i=0; i<10; i++)
+		{
+			autreJourneesSemaine.push_back(new Journee(autreCoursJournee));
+		}
+		for (int i=0; i<10; i++)
+		{
+			autreSemainesAnnee.push_back(new Semaine(autreJourneesSemaine));
+		}
+		annee.setSemainesAnnee(autreSemainesAnnee);
+		REQUIRE(annee.getSemainesAnnee()==autreSemainesAnnee);
 	}
 	
-	SECTION("Changer le prénom marche")
+	SECTION("Ajouter une semaine marche")
 	{
-		etudiant.setPrenom("Lino");
-		REQUIRE(etudiant.getPrenom()=="Lino");
+		Semaine *ajoutSemaine;
+		vector<Journee*> autreJourneesSemaine;
+		vector<Cours*> autreCoursJournee;
+		
+		for (int i=0; i<10; i++)
+		{
+			autreCoursJournee.push_back(new Cours(new Professeur("McGonagall","Minerva","Métamorphose"), new Salle("B600", "B"), 21401196, 21401196));
+		}
+		for (int i=0; i<10; i++)
+		{
+			autreJourneesSemaine.push_back(new Journee(autreCoursJournee));
+		}
+		ajoutSemaine = new Semaine (autreJourneesSemaine);
+		annee.addSemaine(ajoutSemaine, 0);
+		REQUIRE(annee.getSemainesAnnee()[0]==ajoutSemaine);
 	}
-	SECTION("Changer le numéro étudiant marche")
-	{
-		etudiant.setNumeroEtudiant(11111111);
-		REQUIRE(etudiant.getNumeroEtudiant()==11111111);
-	}
-}*/
+
+}
