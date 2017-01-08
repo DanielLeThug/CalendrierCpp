@@ -29,30 +29,37 @@ class EmploiDuTemps
 	void loopFenetrePrincipale();
 	
 	void afficherCours();
-	void afficherSemaine(const Semaine* semaine, AfficheurConsole& aff);
-	void afficherSemaineCSV(const Semaine* semaine, AfficheurCSV& aff);
-	void menuCours();
-	void menuFiliere();
-	void menuProfesseur();
+	void afficherSemaine(const Semaine* semaine);
+	void afficherSemaineCSV(const Semaine* semaine);
+	void afficherJour(const Journee* jour) const;
 	void afficherListeFiliere();
 	void afficherListeSalle() const;
 	void afficherListeProfesseur() const;
-	int choixFiliere();
+	
+	void menuCours();
+	void menuFiliere();
+	void menuProfesseur();
 	void menuAjout(int filiereChoisi, int semaineChoisi, int jourChoisi);
 	void menuModifer(int filiereChoisi, int semaineChoisi, int jourChoisi);
 	void menuDeplacer();
 	void menuSupprimer(int filiereChoisi, int semaineChoisi, int jourChoisi);
+	
+	int choixFiliere();
+	
 	
 	vector<Salle*> getListeSalle() const;
 	vector<Professeur*> getListeProfesseur() const;
 	vector<Filiere*> getListeFiliere() const;
 	
 	void ajouterCours(Journee* journeeAModifier, int crenau);
+	void modifierCours(Cours* coursAModifier);
+	void supprimerCours(Cours* coursASupprimer);
 	void modifierEmploiDuTempsFiliere(int choix );
 	private :
 		vector<Salle* > d_listeSalle;
 		vector<Professeur*> d_listeProfs;
 		vector<Filiere*> d_listeFiliere;
+		AfficheurConsole d_afficheur;
 		
 		
 };
