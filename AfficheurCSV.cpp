@@ -7,6 +7,7 @@ using std::ofstream;
 
 const string SEPARATEUR = "##########,##########,##########,##########,##########";
 const string COURSVIDE = "##########";
+const int NOMBRECOURSJOURNEE = 4;
 
 void AfficheurCSV::afficheSemaine(const Semaine& semaine, std::ostream& ost)
 {
@@ -21,7 +22,7 @@ void AfficheurCSV::afficheSemaine(const Semaine& semaine, std::ostream& ost)
 			fichier<<SEPARATEUR<<endl;
 			
 			
-			for(int j = 0; j < NOMBREJOURNEESSEMAINE; j++)
+			for(int j = 0; j < semaine.getJourneesSemaine().size(); j++)
 			{
 				if(semaine.getJourneesSemaine()[j]->getCoursJournee()[i])
 				{
@@ -33,10 +34,10 @@ void AfficheurCSV::afficheSemaine(const Semaine& semaine, std::ostream& ost)
 					fichier<<COURSVIDE;
 				}
 				
-				if(j != NOMBREJOURNEESSEMAINE-1 ) fichier<<",";
+				if(j != semaine.getJourneesSemaine().size()-1 ) fichier<<",";
 			}
 			fichier<<endl;
-			for(int j = 0; j < NOMBREJOURNEESSEMAINE; j++)
+			for(int j = 0; j < semaine.getJourneesSemaine().size(); j++)
 			{
 				if(semaine.getJourneesSemaine()[j]->getCoursJournee()[i])
 				{
@@ -47,10 +48,10 @@ void AfficheurCSV::afficheSemaine(const Semaine& semaine, std::ostream& ost)
 					fichier<<COURSVIDE;
 				}
 				
-				if(j != NOMBREJOURNEESSEMAINE-1 ) fichier<<",";
+				if(j != semaine.getJourneesSemaine().size()-1 ) fichier<<",";
 			}
 			fichier<<endl;
-			for(int j = 0; j < NOMBREJOURNEESSEMAINE; j++)
+			for(int j = 0; j < semaine.getJourneesSemaine().size(); j++)
 			{
 				if(semaine.getJourneesSemaine()[j]->getCoursJournee()[i])
 				{
@@ -62,7 +63,7 @@ void AfficheurCSV::afficheSemaine(const Semaine& semaine, std::ostream& ost)
 					fichier<<COURSVIDE;
 				}
 				
-				if(j != NOMBREJOURNEESSEMAINE-1 ) fichier<<",";
+				if(j != semaine.getJourneesSemaine().size()-1 ) fichier<<",";
 			}
 			fichier<<endl;
 		}

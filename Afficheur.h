@@ -4,10 +4,6 @@
 #include <iostream>
 #include "Semaine.h"
 
-const int NOMBREJOURNEESSEMAINE = 5;
-
-const int NOMBRECOURSJOURNEE = 4;
-
 class Journee;
 
 class Afficheur {

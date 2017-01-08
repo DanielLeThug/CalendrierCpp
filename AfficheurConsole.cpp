@@ -7,11 +7,11 @@ void AfficheurConsole::afficheSemaine(const Semaine& semaine, ostream& ost)
 {
 	ost<<"### Emploi du temps de la semaine ###"<<endl;
 	
-	for(int i=0;i<NOMBREJOURNEESSEMAINE;i++)
+	for(int i=0;i<semaine.getJourneesSemaine().size();i++)
 	{
 		ost<<"Jour n°"<<i<<endl;
 		
-		for(int j=0;j<NOMBRECOURSJOURNEE;j++)
+		for(int j=0;j<semaine.getJourneesSemaine()[i]->getCoursJournee().size();j++)
 		{
 			if(semaine.getJourneesSemaine()[i]->getCoursJournee()[j])
 			{
