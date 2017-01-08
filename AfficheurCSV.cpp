@@ -74,3 +74,7 @@ void AfficheurCSV::afficheSemaine(const Semaine& semaine, std::ostream& ost)
 		ost<<"Impossible d'enregistrer le fichier"<<endl;
 	}
 }
+
+AfficheurCSV::~AfficheurCSV()
+{
+}
