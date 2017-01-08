@@ -6,6 +6,7 @@ using std::endl;
 using std::ofstream;
 
 const string SEPARATEUR = "##########,##########,##########,##########,##########";
+const string COURSVIDE = "##########";
 
 void AfficheurCSV::afficheSemaine(const Semaine& semaine, std::ostream& ost)
 {
@@ -19,21 +20,51 @@ void AfficheurCSV::afficheSemaine(const Semaine& semaine, std::ostream& ost)
 		{
 			fichier<<SEPARATEUR<<endl;
 			
+			
 			for(int j = 0; j < NOMBREJOURNEESSEMAINE; j++)
 			{
-				fichier<<semaine.getJourneesSemaine()[j]->getCoursJournee()[i]->getProfesseur().getMatiereEnseignee()<<",";
+				if(semaine.getJourneesSemaine()[j]->getCoursJournee()[i])
+				{
+					fichier<<semaine.getJourneesSemaine()[j]->getCoursJournee()[i]->getHorraire()<<"h : ";
+					fichier<<semaine.getJourneesSemaine()[j]->getCoursJournee()[i]->getProfesseur().getMatiereEnseignee();
+				}
+				else
+				{
+					fichier<<COURSVIDE;
+				}
+				
+				if(j != NOMBREJOURNEESSEMAINE-1 ) fichier<<",";
 			}
 			fichier<<endl;
 			for(int j = 0; j < NOMBREJOURNEESSEMAINE; j++)
 			{
-				fichier<<semaine.getJourneesSemaine()[j]->getCoursJournee()[i]->getProfesseur().getNom()<<",";
+				if(semaine.getJourneesSemaine()[j]->getCoursJournee()[i])
+				{
+					fichier<<semaine.getJourneesSemaine()[j]->getCoursJournee()[i]->getProfesseur().getNom();
+				}
+				else
+				{
+					fichier<<COURSVIDE;
+				}
+				
+				if(j != NOMBREJOURNEESSEMAINE-1 ) fichier<<",";
 			}
 			fichier<<endl;
 			for(int j = 0; j < NOMBREJOURNEESSEMAINE; j++)
 			{
-				fichier<<"Salle "<<semaine.getJourneesSemaine()[j]->getCoursJournee()[i]->getSalle().getNumeroSalle()<<" ";
-				fichier<<semaine.getJourneesSemaine()[j]->getCoursJournee()[i]->getSalle().getBatiment()<<",";
+				if(semaine.getJourneesSemaine()[j]->getCoursJournee()[i])
+				{
+					fichier<<"Salle "<<semaine.getJourneesSemaine()[j]->getCoursJournee()[i]->getSalle().getNumeroSalle()<<" ";
+				fichier<<semaine.getJourneesSemaine()[j]->getCoursJournee()[i]->getSalle().getBatiment();
+				}
+				else
+				{
+					fichier<<COURSVIDE;
+				}
+				
+				if(j != NOMBREJOURNEESSEMAINE-1 ) fichier<<",";
 			}
+			fichier<<endl;
 		}
 		ost<<"Fichier cree avec succes"<<endl;
 	}
