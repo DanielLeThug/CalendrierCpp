@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DialogAfficherCours</class>
+ <widget class="QDialog" name="DialogAfficherCours">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1096</width>
+    <height>491</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Affichage semaine</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>40</y>
+     <width>44</width>
+     <height>371</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>8H-10H</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_9">
+      <property name="text">
+       <string>10H-12H</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_10">
+      <property name="text">
+       <string>14H-16H</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_11">
+      <property name="text">
+       <string>16H-18H</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>10</y>
+     <width>941</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Lundi</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Mardi</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Mercredi</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Jeudi</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Vendredi</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Samedi</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Dimanche</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>40</y>
+     <width>941</width>
+     <height>371</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTextBrowser" name="lundi8_10"/>
+    </item>
+    <item row="0" column="1">
+     <widget class="QTextBrowser" name="mardi8_10"/>
+    </item>
+    <item row="0" column="2">
+     <widget class="QTextBrowser" name="mercredi8_10"/>
+    </item>
+    <item row="0" column="3">
+     <widget class="QTextBrowser" name="jeudi8_10"/>
+    </item>
+    <item row="0" column="4">
+     <widget class="QTextBrowser" name="vendredi8_10"/>
+    </item>
+    <item row="0" column="5">
+     <widget class="QTextBrowser" name="samedi8_10"/>
+    </item>
+    <item row="0" column="6">
+     <widget class="QTextBrowser" name="dimanche8_10"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QTextBrowser" name="lundi10_12"/>
+    </item>
+    <item row="1" column="1">
+     <widget class="QTextBrowser" name="mardi10_12"/>
+    </item>
+    <item row="1" column="2">
+     <widget class="QTextBrowser" name="mercredi10_12"/>
+    </item>
+    <item row="1" column="3">
+     <widget class="QTextBrowser" name="jeudi10_12"/>
+    </item>
+    <item row="1" column="4">
+     <widget class="QTextBrowser" name="vendredi10_12"/>
+    </item>
+    <item row="1" column="5">
+     <widget class="QTextBrowser" name="samedi10_12"/>
+    </item>
+    <item row="1" column="6">
+     <widget class="QTextBrowser" name="dimanche10_12"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QTextBrowser" name="lundi14_16"/>
+    </item>
+    <item row="2" column="1">
+     <widget class="QTextBrowser" name="mardi14_16"/>
+    </item>
+    <item row="2" column="2">
+     <widget class="QTextBrowser" name="mercredi14_16"/>
+    </item>
+    <item row="2" column="3">
+     <widget class="QTextBrowser" name="jeudi14_16"/>
+    </item>
+    <item row="2" column="4">
+     <widget class="QTextBrowser" name="vendredi14_16"/>
+    </item>
+    <item row="2" column="5">
+     <widget class="QTextBrowser" name="samedi14_16"/>
+    </item>
+    <item row="2" column="6">
+     <widget class="QTextBrowser" name="dimanche14_16"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QTextBrowser" name="lundi16_18"/>
+    </item>
+    <item row="3" column="1">
+     <widget class="QTextBrowser" name="mardi16_18"/>
+    </item>
+    <item row="3" column="2">
+     <widget class="QTextBrowser" name="mercredi16_18"/>
+    </item>
+    <item row="3" column="3">
+     <widget class="QTextBrowser" name="jeudi16_18"/>
+    </item>
+    <item row="3" column="4">
+     <widget class="QTextBrowser" name="vendredi16_18"/>
+    </item>
+    <item row="3" column="5">
+     <widget class="QTextBrowser" name="samedi16_18"/>
+    </item>
+    <item row="3" column="6">
+     <widget class="QTextBrowser" name="dimanche16_18"/>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
