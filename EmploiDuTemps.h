@@ -7,6 +7,8 @@
 #include "Professeur.h"
 #include <fstream>
 #include <string>
+#include "AfficheurConsole.h"
+#include "AfficheurCSV.h"
 
 using std::string;
 
@@ -27,8 +29,8 @@ class EmploiDuTemps
 	void loopFenetrePrincipale();
 	
 	void afficherCours();
-	void afficherSemaine();
-	void afficherJour();
+	void afficherSemaine(const Semaine* semaine, AfficheurConsole& aff);
+	void afficherSemaineCSV(const Semaine* semaine, AfficheurCSV& aff);
 	void menuCours();
 	void menuFiliere();
 	void menuProfesseur();
@@ -40,6 +42,10 @@ class EmploiDuTemps
 	void menuModifer(int filiereChoisi, int semaineChoisi, int jourChoisi);
 	void menuDeplacer();
 	void menuSupprimer(int filiereChoisi, int semaineChoisi, int jourChoisi);
+	
+	vector<Salle*> getListeSalle() const;
+	vector<Professeur*> getListeProfesseur() const;
+	vector<Filiere*> getListeFiliere() const;
 	
 	void ajouterCours(Journee* journeeAModifier, int crenau);
 	void modifierEmploiDuTempsFiliere(int choix );

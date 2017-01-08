@@ -212,14 +212,14 @@ void EmploiDuTemps::menuSupprimer(int filiereChoisi, int semaineChoisi, int jour
 		
 }
 
-void EmploiDuTemps::afficherSemaine()
+void EmploiDuTemps::afficherSemaine(const Semaine* semaine, AfficheurConsole& aff)
 {
-	
+	aff.afficheSemaine(*semaine,cout);
 }
 
-void EmploiDuTemps::afficherJour()
+void EmploiDuTemps::afficherSemaineCSV(const Semaine* semaine, AfficheurCSV& aff)
 {
-	
+	aff.afficheSemaine(*semaine,cout);
 }
 
 void EmploiDuTemps::menuCours()
@@ -227,13 +227,14 @@ void EmploiDuTemps::menuCours()
 	cout<<"Dans quelle filière souhaitez vous modifier les cours ?"<<endl;
 	int filiereChoisi = choixFiliere();
 	int choix, semaineChoisi, jourChoisi;
+	AfficheurConsole affConsole;
 	do
 	{	
 		cout<<"Quelle semaine souhaitez vous modifier ? : "<<endl;
 		cin >> semaineChoisi;
 		//si la semaine existe on l'affiche
-		if(d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi])
-			afficherSemaine();
+		if(getListeFiliere()[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi])
+			afficherSemaine(getListeFiliere()[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi],affConsole);
 		else
 			cout << "Cette semaine n'a pas encore été créé.";
 			
@@ -256,16 +257,6 @@ void EmploiDuTemps::menuCours()
 	}while(choix>=1 && choix<=4);
 }
 
-void EmploiDuTemps::afficherListeSalle() const
-{
-	
-}
-	
-void EmploiDuTemps::afficherListeProfesseur() const
-{
-		
-}
-
 void EmploiDuTemps::menuFiliere()
 {
 	
@@ -276,11 +267,30 @@ void EmploiDuTemps::menuProfesseur()
 	
 }
 
+void EmploiDuTemps::afficherListeSalle() const
+{
+	cout<<"Liste des salles : "<<endl;
+	for(int i = 0; i < getListeSalle().size(); i++)
+	{
+		cout<<"Salle n°"<<getListeSalle()[i]->getNumeroSalle()<<", Batiment "<<getListeSalle()[i]->getBatiment()<<endl;
+	}
+}
+	
+void EmploiDuTemps::afficherListeProfesseur() const
+{
+	cout<<"Liste des professeurs : "<<endl;
+	for(int i = 0; i < getListeProfesseur().size(); i++)
+	{
+		cout<<i+1<<" "<<getListeProfesseur()[i]->getNom()<<" "<<getListeProfesseur()[i]->getPrenom()<<" enseigne "<<getListeProfesseur()[i]->getMatiereEnseignee()<<endl;
+	}
+}
+
 void EmploiDuTemps::afficherListeFiliere()
 {
-	for(int i=0;i<d_listeFiliere.size();i++)
+	cout<<"Liste des filieres : "<<endl;
+	for(int i=0;i<getListeFiliere().size();i++)
 	{
-		cout<<i+1<<" "<<d_listeFiliere[i]->getIntitule()<<endl;
+		cout<<i+1<<" "<<getListeFiliere()[i]->getIntitule()<<endl;
 	}
 }
 
@@ -321,4 +331,19 @@ void EmploiDuTemps::ajouterCours(Journee* journeeAModifier, int crenau)
 	};
 	Cours* cours= new Cours{d_listeProfs[choixProfesseur], d_listeSalle[choixSalle], horaire};
 	journeeAModifier->ajouterCours(cours, crenau);
+}
+
+vector<Salle*> EmploiDuTemps::getListeSalle() const
+{
+	return d_listeSalle;
+}
+
+vector<Professeur*> EmploiDuTemps::getListeProfesseur() const
+{
+	return d_listeProfs;
+}
+
+vector<Filiere*> EmploiDuTemps::getListeFiliere() const
+{
+	return d_listeFiliere;
 }

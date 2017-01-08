@@ -33,3 +33,6 @@ void AfficheurConsole::afficheSemaine(const Semaine& semaine, ostream& ost)
 	}
 }
 
+AfficheurConsole::~AfficheurConsole()
+{
+}
