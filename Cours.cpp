@@ -1,19 +1,9 @@
 #include "Cours.h"
 
-Cours::Cours(/*Filiere* fil,*/Professeur* prof,Salle* sal, int hor, int duree) :
-	/*d_filiere{fil},*/ d_professeur{prof}, d_salle{sal}, d_horraireDebut{hor}, d_duree{duree}
+Cours::Cours(Professeur* prof,Salle* sal, int hor, int duree) :
+	d_professeur{prof}, d_salle{sal}, d_horraireDebut{hor}, d_duree{duree}
 {
 }
-/*
-Filiere Cours::getFiliere() const
-{
-	return *d_filiere;
-}*/
-/*
-void Cours::setFiliere(Filiere* fil)
-{
-	d_filiere = fil;
-}*/
 
 Professeur Cours::getProfesseur() const
 {
