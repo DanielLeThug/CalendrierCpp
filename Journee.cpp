@@ -18,7 +18,7 @@ Journee::Journee() : d_coursJournee{}
 {
 	for(int i=0;i<NOMBRE_COURS;i++)
 	{
-		d_coursJournee.push_back(NULL);
+		d_coursJournee.push_back(nullptr);
 	}
 }
 
