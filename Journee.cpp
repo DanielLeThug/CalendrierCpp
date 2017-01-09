@@ -1,6 +1,5 @@
 #include "Journee.h"
 
-
 const int NOMBRE_COURS=4;
 /**
 	@brief Constructeur
@@ -19,7 +18,7 @@ Journee::Journee() : d_coursJournee{}
 {
 	for(int i=0;i<NOMBRE_COURS;i++)
 	{
-		d_coursJournee.push_back(nullptr);
+		d_coursJournee.push_back(NULL);
 	}
 }
 

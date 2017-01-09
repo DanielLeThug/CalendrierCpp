@@ -6,11 +6,20 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+/**
+	@brief Constructeur par défaut
+*/
 EmploiDuTemps::EmploiDuTemps() : d_listeSalle{}, d_listeProfs{}, d_listeFiliere{}, d_afficheur{}
 {
 	
 }
 
+/**
+	@brief Méthode qui teste une filière est dans la liste de filières et renvoie sa position
+	
+	@param filiere Pointeur sur une Filiere
+	@param index Référence sur un entier représentant la position de la Filiere dans la liste
+*/
 bool EmploiDuTemps::estDansListeFiliere(Filiere* filiere, int& index) const
 {
 	for(int i=0;i<d_listeFiliere.size();i++)
@@ -24,7 +33,11 @@ bool EmploiDuTemps::estDansListeFiliere(Filiere* filiere, int& index) const
 	return false;
 }
 
-
+/**
+	@brief Méthode pour ajouter une Filiere à la liste
+	
+	@param filiere Pointeur sur une Filiere
+*/
 void EmploiDuTemps::ajouterFiliere(Filiere* filiere)
 {	
 	int index;
@@ -38,6 +51,12 @@ void EmploiDuTemps::ajouterFiliere(Filiere* filiere)
 	}
 }
 
+/**
+	@brief Méthode qui teste un prof est dans la liste de Professeur et renvoie sa position
+	
+	@param professeur Pointeur sur un Professeur
+	@param index Référence sur un entier représentant la position du professeur dans la liste
+*/
 bool EmploiDuTemps::estDansListeProfesseur(Professeur* professeur, int& index) const
 {
 	for(int i=0;i<d_listeProfs.size();i++)
@@ -51,6 +70,11 @@ bool EmploiDuTemps::estDansListeProfesseur(Professeur* professeur, int& index) c
 	return false;
 }
 
+/**
+	@brief Méthode pour ajouter un Professeur à la liste
+	
+	@param professeur Pointeur sur un Professeur
+*/
 void EmploiDuTemps::ajouterProfesseur(Professeur* professeur)
 {
 	int index;
@@ -64,12 +88,20 @@ void EmploiDuTemps::ajouterProfesseur(Professeur* professeur)
 	}
 }
 
+/**
+	@brief Méthode qui renvoie la Filiere de la liste à une position passée en paramètre
+	
+	@param index Entier représentant la position de la Filiere
+*/
 Filiere* EmploiDuTemps::accederAFiliere(int index)
 { 
 	return d_listeFiliere[index];
 }
 
-
+/**
+	@brief Méthode qui affiche le menu principal dans la console
+	
+*/
 void EmploiDuTemps::fenetrePrincipale()
 {
 	cout<<"Menu Principal: "<<endl;
@@ -80,6 +112,9 @@ void EmploiDuTemps::fenetrePrincipale()
 	cout<<"5. Quitter"<<endl;
 }
 
+/**
+	@brief Boucle principale du programme
+*/
 void EmploiDuTemps::loopFenetrePrincipale()
 {
 	int choix;
@@ -97,6 +132,9 @@ void EmploiDuTemps::loopFenetrePrincipale()
 	}while(choix>=1 && choix<=4);
 }
 
+/**
+	@brief Méthode qui propose un menu console pour afficher un Cours
+*/
 void EmploiDuTemps::afficherCours()
 {
 	cout<<"De quelle filière souhaitez vous consulter les cours ?"<<endl;
@@ -116,6 +154,13 @@ void EmploiDuTemps::afficherCours()
 		cout<<"Cette filiere n'existe pas"<<endl;
 }
 
+/**
+	@brief Méthode qui propose un menu console pour ajouter un Cours
+	
+	@param filiereChoisi Entier représentant l'index d'une Filiere
+	@param semaineChoisi Entier représentant le numéro d'une Semaine
+	@param jourChoisi Entier représentant le numéro d'une Journee
+*/
 void EmploiDuTemps::menuAjoutCours(int filiereChoisi, int semaineChoisi, int jourChoisi)
 {	
 	afficherJour(d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi]);
@@ -158,6 +203,13 @@ void EmploiDuTemps::menuAjoutCours(int filiereChoisi, int semaineChoisi, int jou
 	
 }
 
+/**
+	@brief Méthode qui propose un menu console pour modifier un Cours
+	
+	@param filiereChoisi Entier représentant l'index d'une Filiere
+	@param semaineChoisi Entier représentant le numéro d'une Semaine
+	@param jourChoisi Entier représentant le numéro d'une Journee
+*/
 void EmploiDuTemps::menuModiferCours(int filiereChoisi, int semaineChoisi, int jourChoisi)
 {
 	afficherJour(d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi]);
@@ -195,8 +247,13 @@ void EmploiDuTemps::menuModiferCours(int filiereChoisi, int semaineChoisi, int j
 	}
 }
 
-
-
+/**
+	@brief Méthode qui propose un menu console pour supprimer un Cours
+	
+	@param filiereChoisi Entier représentant l'index d'une Filiere
+	@param semaineChoisi Entier représentant le numéro d'une Semaine
+	@param jourChoisi Entier représentant le numéro d'une Journee
+*/
 void EmploiDuTemps::menuSupprimerCours(int filiereChoisi, int semaineChoisi, int jourChoisi)
 {
 	afficherJour(d_listeFiliere[filiereChoisi]->getAnnee()->getSemainesAnnee()[semaineChoisi]->getJourneesSemaine()[jourChoisi]);
@@ -223,21 +280,40 @@ void EmploiDuTemps::menuSupprimerCours(int filiereChoisi, int semaineChoisi, int
 		
 }
 
+/**
+	@brief Méthode qui affiche une Semaine dans la console
+	
+	@param semaine Pointeur sur une Semaine
+*/
 void EmploiDuTemps::afficherSemaine(const Semaine* semaine)
 {
 	
 	d_afficheur.afficheSemaine(*semaine);
 }
 
+/**
+	@brief Méthode qui enregistre une Semaine dans un fichier .csv
+	
+	@param semaine Pointeur sur une Semaine
+*/
 void EmploiDuTemps::afficherSemaineCSV(const Semaine* semaine)
 {
 	d_afficheur.afficheSemaine(*semaine);
 }
 
+/**
+	@brief Méthode qui affiche une Journee dans la console
+	
+	@param jour Pointeur sur une Journee
+*/
 void EmploiDuTemps::afficherJour(const Journee* jour) const
 {
 	d_afficheur.afficheJour(jour);
 }
+
+/**
+	@brief Méthode qui propose un menu console pour gérer les Cours
+*/
 void EmploiDuTemps::menuCours()
 {
 	cout<<"Dans quelle filière souhaitez vous modifier les cours ?"<<endl;
@@ -277,6 +353,9 @@ void EmploiDuTemps::menuCours()
 	}
 }
 
+/**
+	@brief Méthode renvoyant un Etudiant saisi par l'utilisateur
+*/
 Etudiant*	EmploiDuTemps::menuAjoutEtudiant()
 {
 	string nom, prenom;
@@ -291,6 +370,9 @@ Etudiant*	EmploiDuTemps::menuAjoutEtudiant()
 	return new Etudiant{nom, prenom, numeroEtu};
 }
 
+/**
+	@brief Méthode qui permet à l'utilisateur de saisir une Filiere
+*/
 void EmploiDuTemps::menuAjoutFiliere()
 {
 	string intitule;
@@ -303,7 +385,7 @@ void EmploiDuTemps::menuAjoutFiliere()
 	{	
 		do
 		{
-			cout<<"Ajoutez un étudiant ? \n1. Oui\n2. Non"<<endl;
+			cout<<"Ajouter un étudiant ? \n1. Oui\n2. Non"<<endl;
 			cin>>choix;
 			switch(choix) 
 			{
@@ -314,10 +396,15 @@ void EmploiDuTemps::menuAjoutFiliere()
 	}
 	else
 	{
-		cout<"cette filière existe déjà";
+		cout<<"Cette filiere existe deja"<<endl;
 	}
 }
 
+/**
+	@brief Méthode qui permet à l'utilisateur de modifier une Filiere
+	
+	@param filiereChoisie Référence sur un entier représentant l'index d'une Filiere
+*/
 void EmploiDuTemps::menuModiferFiliere(const int& filiereChoisie)
 {
 	string intitule;
@@ -325,23 +412,31 @@ void EmploiDuTemps::menuModiferFiliere(const int& filiereChoisie)
 	vector<Etudiant*> listeEtudiants;
 	if (d_listeFiliere.size() < filiereChoisie)
 	{
-		cout<<"mauvaise indication";
+		cout<<"Mauvaise indication";
 	}
 	else
 	{
-		
-		cout<<"Nouvel intitule:"; cin>>intitule; d_listeFiliere[filiereChoisie]->setIntitule(intitule);
+		cout<<"Nouvel intitule:"; 
+		cin>>intitule; d_listeFiliere[filiereChoisie]->setIntitule(intitule);
 	}
 		
 }
 
+/**
+	@brief Méthode qui permet de supprimer une Filiere
+	
+	@param filiereChoisie Référence sur un entier représentant l'index d'une Filiere
+*/
 void EmploiDuTemps::menuSupprimerFiliere(const int& filiereChoisie)
 {
 	if(getListeFiliere()[filiereChoisie])
 	delete getListeFiliere()[filiereChoisie];
 	getListeFiliere().resize(getListeFiliere().size()-1);
 }
-		
+
+/**
+	@brief Méthode qui propose un menu console pour gérer les Filiere
+*/
 void EmploiDuTemps::menuFiliere()
 {
 	int choix;
@@ -378,6 +473,9 @@ void EmploiDuTemps::menuFiliere()
 	}while(choix>=1 && choix<=3);
 }
 
+/**
+	@brief Méthode qui permet à l'utilisateur de saisir un Professeur
+*/
 void EmploiDuTemps::menuAjoutProfesseur()
 {
 	string nom, prenom, matiereEnseignee;
@@ -392,6 +490,11 @@ void EmploiDuTemps::menuAjoutProfesseur()
 	cout<<"le professeur a ete ajoute";
 }
 
+/**
+	@brief Méthode qui permet à l'utilisateur de modifier un Professeur
+	
+	@param choixProfesseur Référence sur un entier représentant l'index d'un Professeur
+*/
 void EmploiDuTemps::menuModiferProfesseur(const int& choixProfesseur)
 {
 	string motEnregistre;
@@ -414,12 +517,19 @@ void EmploiDuTemps::menuModiferProfesseur(const int& choixProfesseur)
 	}
 }
 
+/**
+	@brief Méthode qui permet de supprimer un Professeur
+	
+	@param choixProfesseur Référence sur un entier représentant l'index d'un Professeur
+*/
 void EmploiDuTemps::menuSupprimerProfesseur(const int& choixProfesseur)
 {
 	delete d_listeProfs[choixProfesseur];
 }
 
-			
+/**
+	@brief Méthode qui renvoie un entier représentant l'index du Professeur choisi par l'utilisateur
+*/
 int EmploiDuTemps::choixProfesseur()
 {
 	int choixProfesseur;
@@ -429,6 +539,9 @@ int EmploiDuTemps::choixProfesseur()
 	return choixProfesseur;
 }
 
+/**
+	@brief Méthode qui propose un menu console pour gérer les Professeur
+*/
 void EmploiDuTemps::menuProfesseur()
 {
 	int choix, profChoisi;
@@ -460,6 +573,9 @@ void EmploiDuTemps::menuProfesseur()
 	}while(choix>=1 && choix<=3);
 }
 
+/**
+	@brief Méthode qui affiche la liste des Salle dans la console
+*/
 void EmploiDuTemps::afficherListeSalle() const
 {
 	cout<<"Liste des salles : "<<endl;
@@ -468,7 +584,10 @@ void EmploiDuTemps::afficherListeSalle() const
 		cout<<"Salle n°"<<getListeSalle()[i]->getNumeroSalle()<<", Batiment "<<getListeSalle()[i]->getBatiment()<<endl;
 	}
 }
-	
+
+/**
+	@brief Méthode qui affiche la liste des Professeur dans la console
+*/	
 void EmploiDuTemps::afficherListeProfesseur() const
 {
 	cout<<"Liste des professeurs : "<<endl;
@@ -478,6 +597,9 @@ void EmploiDuTemps::afficherListeProfesseur() const
 	}
 }
 
+/**
+	@brief Méthode qui affiche la liste des Filiere dans la console
+*/
 void EmploiDuTemps::afficherListeFiliere()
 {
 	cout<<"Liste des filieres : "<<endl;
@@ -487,6 +609,9 @@ void EmploiDuTemps::afficherListeFiliere()
 	}
 }
 
+/**
+	@Méthode qui renvoie un entier représentant la Filiere choisie par l'utilisateur
+*/
 int EmploiDuTemps::choixFiliere()
 {	
 	afficherListeFiliere();
@@ -495,6 +620,13 @@ int EmploiDuTemps::choixFiliere()
 	cin>>choix;
 	return choix-1;
 }
+
+/**
+	@brief Méthode qui propose un menu console à l'utilisateur pour ajouter un Cours
+	
+	@param journeeAModifier Pointeur sur une Journee
+	@param creneau Entier représentant un créneau de la Journee
+*/
 void EmploiDuTemps::ajouterCours(Journee* journeeAModifier, int crenau)
 {	
 	cout<<"Choisir Professeur : " <<endl;
@@ -525,21 +657,35 @@ void EmploiDuTemps::ajouterCours(Journee* journeeAModifier, int crenau)
 	journeeAModifier->ajouterCours(cours, crenau);
 }
 
+/**
+	@brief Getter renvoyant un vecteur de pointeurs sur des Salle
+*/
 vector<Salle*> EmploiDuTemps::getListeSalle() const
 {
 	return d_listeSalle;
 }
 
+/**
+	@brief Getter renvoyant un vecteur de pointeurs sur des Professeur
+*/
 vector<Professeur*> EmploiDuTemps::getListeProfesseur() const
 {
 	return d_listeProfs;
 }
 
+/**
+	@brief Getter renvoyant un vecteur de pointeurs sur des Filiere
+*/
 vector<Filiere*> EmploiDuTemps::getListeFiliere() const
 {
 	return d_listeFiliere;
 }
 
+/**
+	@brief Méthode proposant un menu console à l'utilisateur pour modifier un Cours
+	
+	@param coursAModifier Pointeur sur le Cours à modifier
+*/
 void EmploiDuTemps::modifierCours(Cours* coursAModifier) 
 {
 	cout<<"Choisir Professeur : " <<endl;
@@ -554,11 +700,21 @@ void EmploiDuTemps::modifierCours(Cours* coursAModifier)
 	coursAModifier->setSalle(d_listeSalle[choixSalle]);
 }
 
+/**
+	@brief Méthode qui supprime le Cours passé en paramètre
+	
+	@param coursASupprimer Pointeur sur un Cours
+*/
 void EmploiDuTemps::supprimerCours(Cours* coursASupprimer)
 {
 	delete coursASupprimer;
 }
 
+/**
+	@brief Méthode qui teste si une Filiere est déjà présente dans la liste des Filiere
+	
+	@param intitule Référence sur un string représentant l'intitulé de la Filiere
+*/
 bool EmploiDuTemps::filiereExisteDeja(const string& intitule)
 {	
 	if(getListeFiliere().size()==0)

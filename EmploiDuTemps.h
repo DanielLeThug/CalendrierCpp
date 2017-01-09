@@ -12,6 +12,11 @@
 
 using std::string;
 
+/**
+	@class EmploiDuTemps
+	
+	@brief Classe permettant de gérer l'emploi du temps
+*/
 class EmploiDuTemps
 {
 	public:
