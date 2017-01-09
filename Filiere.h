@@ -15,7 +15,7 @@ class Filiere
 {
 	public:
 		Filiere(const string& intitule, const vector<Etudiant*>& listeEtu);
-		
+		Filiere();
 		string getIntitule() const;
 		void setIntitule(const string& intitule);
 		vector<Etudiant*> getListeEtudiants() const;

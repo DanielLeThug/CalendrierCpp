@@ -1,16 +1,26 @@
 #include "Filiere.h"
 
 
+
 /**
 	@brief Constructeur
 	@param intitule Nom de la filière
 	@param listeEtu liste des étudiants
 */
 Filiere::Filiere(const string& intitule, const vector<Etudiant*>& listeEtu) :
-	d_intitule{intitule}, d_listeEtudiants{listeEtu}
+	d_intitule{intitule}, d_listeEtudiants{listeEtu}, d_annee{}
 {
+
 }
 
+/**
+	@brief Constructeur par défault
+
+*/
+Filiere::Filiere(): d_intitule{}, d_listeEtudiants{}, d_annee{}
+{
+	
+}
 /**
 	@brief Getter renvoyant le nom de la matière
 */

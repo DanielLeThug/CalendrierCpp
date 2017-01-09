@@ -14,7 +14,7 @@ class Journee
 {
 	public:
 		Journee(const vector<Cours*>& coursJournee);
-		
+		Journee();
 		vector<Cours*> getCoursJournee() const;
 		void setCoursJournee(const vector<Cours*>& coursJournee);
 		void ajouterCours(Cours* cours, int crenau);

@@ -13,7 +13,7 @@ class Annee
 {
 	public:
 		Annee(const vector<Semaine*>& semainesAnnee);
-		
+		Annee();
 		vector<Semaine*> getSemainesAnnee() const;
 		void setSemainesAnnee(const vector<Semaine*>& semainesAnnee);
 		void addSemaine(Semaine* semaine, int numero);

@@ -1,12 +1,24 @@
 #include "Semaine.h"
 #include "Journee.h"
 
+const int NOMBRE_JOUR=7;
 /**
 	@brief Constructeur
 */
 Semaine::Semaine(const vector<Journee*>& journeesSemaine) :
 	d_journeesSemaine{journeesSemaine}
 {
+}
+
+/**
+	@brief Constructeur par défaut
+*/
+Semaine::Semaine() : d_journeesSemaine{}
+{
+	for(int i=0;i<NOMBRE_JOUR;i++)
+	{
+		d_journeesSemaine.push_back(new Journee{});	
+	}	
 }
 
 /**

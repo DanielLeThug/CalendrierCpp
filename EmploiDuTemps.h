@@ -24,7 +24,7 @@ class EmploiDuTemps
 	bool estDansListeProfesseur(Professeur* professeur, int& index) const;
 	void ajouterProfesseur(Professeur* professeur);
 	Filiere* accederAFiliere(int index);
-	
+	bool filiereExisteDeja(const string& intitule);
 	
 	void fenetrePrincipale();
 	void loopFenetrePrincipale();
@@ -43,7 +43,6 @@ class EmploiDuTemps
 	
 	void menuAjoutCours(int filiereChoisi, int semaineChoisi, int jourChoisi);
 	void menuModiferCours(int filiereChoisi, int semaineChoisi, int jourChoisi);
-	void menuDeplacerCours();
 	void menuSupprimerCours(int filiereChoisi, int semaineChoisi, int jourChoisi);
 
 	Etudiant* menuAjoutEtudiant();

@@ -15,7 +15,7 @@ class Semaine
 {
 	public:
 		Semaine(const vector< Journee* >& journeesSemaine);
-		
+		Semaine();
 		vector<Journee*> getJourneesSemaine() const;
 		void setJourneesSemaine(const vector<Journee*>& journeesSemaine);
 		void addJournee(Journee*, int numeroJournee);

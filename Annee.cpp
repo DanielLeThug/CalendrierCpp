@@ -1,5 +1,6 @@
 #include "Annee.h"
 
+const int NOMBRE_SEMAINE=52;
 /**
 	@brief Constructeur
 	
@@ -8,8 +9,18 @@
 Annee::Annee(const vector<Semaine*>& semainesAnnee) :
 	d_semainesAnnee{semainesAnnee}
 {
+	
 }
-
+/**
+	@brief Constructeur par défaut
+*/
+Annee::Annee() : d_semainesAnnee{}
+{
+	for(int i=0;i<NOMBRE_SEMAINE;i++)
+	{
+		d_semainesAnnee.push_back(new Semaine{});
+	}
+}
 /**
 	@brief Getter renvoyant le tableau des semaines
 	
